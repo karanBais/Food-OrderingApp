@@ -1,0 +1,43 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Poppins", sans-serif;
+}
+.main-header{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #8a2b06;
+    color: white;
+}
+.main-header h1{
+    margin: 20px 50px;
+}
+.cart{
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    margin: 25px 50px;
+    background-color: #4d1601;
+    padding: 10px 35px;
+    border-radius: 50px;
+}
+.cart p{
+    font-size: 16px;
+    font-weight: 500;
+    margin-right: 5px;
+    cursor: pointer;
+}
+.cart-icon{
+    width: 30px;
+    margin-right: 5px;
+    cursor: pointer;
+}
+.quantity{
+    color: white;
+    background-color: #b94517;
+    padding: 5px 15px;
+    border-radius: 50px;
+    cursor: pointer;
+}
