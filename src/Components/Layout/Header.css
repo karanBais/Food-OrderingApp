@@ -9,7 +9,7 @@
     justify-content: space-between;
     align-items: center;
     background-color: #8a2b06;
-    color: white;
+    color: rgb(225, 224, 224);
 }
 .main-header h1{
     margin: 20px 50px;
