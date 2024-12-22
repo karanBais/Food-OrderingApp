@@ -13,6 +13,7 @@
     align-items: center;
     background-color: #8a2b06;
     color: rgb(225, 224, 224);
+    left: 0;
 }
 .main-header h1{
     margin: 20px 50px;

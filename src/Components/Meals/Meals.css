@@ -13,6 +13,7 @@
 
 .item{
     display: flex;
+    justify-content: space-between;
     flex-direction: column;
     padding: 10px;
     margin: 10px;
@@ -22,4 +23,28 @@ hr{
 width: 100%;
 color: black;
 
+}
+.items{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.amount input{
+    width: 30px;
+    
+}
+.amount label{
+    font-size: 13px;
+    margin-right: 10px;
+    font-weight: bold;
+}
+.amount button{
+    background-color: rgb(106, 27, 27);
+   border-radius:  30px;
+   padding: 5px 22px;
+   border: none;
+   color: white;
+   margin-top: 5px;
+   font-weight: bold;
+   text-align: center;
 }

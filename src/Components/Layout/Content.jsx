@@ -4,10 +4,15 @@ import './Content.css'
 const Content = () => {
   return (
     <div className='main-content'>
-    <h1>Delicous Food, Delivered to You</h1>
-    <p>Choose your favourite meal from our broad selection of available meals and enjoy a delicious lunch or deliver at home.
-    <br /> <br />
-    All our meals are cooked in high-quality ingreadient, Just in time and of course by experienced chefs</p>
+    <h2>Delicious Food, Delivered To You</h2>
+      <p>
+        Choose your favorite meal from our broad selection of available meals
+        and enjoy a delicious lunch or dinner at home.
+      </p>
+      <p>
+        All our meals are cooked with high-quality ingredients, just-in-time and
+        of course by experienced chefs!
+      </p>
     </div>
   )
 }
