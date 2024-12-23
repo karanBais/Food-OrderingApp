@@ -1,11 +1,9 @@
-import React from 'react';
-import ReactDOM from 'react-dom';
-import './Modal.css';
+import React from "react";
+import ReactDOM from "react-dom";
+import "./Modal.css";
 
 const Modal = ({ show, onClose, orderDetails, totalAmount }) => {
-  if (!show) {
-    return null;
-  }
+  if (!show) return null;
 
   return ReactDOM.createPortal(
     <div className="modal-overlay">
@@ -16,16 +14,18 @@ const Modal = ({ show, onClose, orderDetails, totalAmount }) => {
           ))}
         </ul>
         <div className="amount">
-        <h3>Total Amount:</h3>
-        <h3>{totalAmount}</h3>
+          <h3>Total Amount:</h3>
+          <h3>{totalAmount}</h3>
         </div>
         <div className="button">
-        <button className='close-btn'>Order</button>
-        <button className='close-btn' onClick={onClose}>Close</button>
+          <button className="close-btn">Order</button>
+          <button className="close-btn" onClick={onClose}>
+            Close
+          </button>
         </div>
       </div>
     </div>,
-    document.getElementById('modal-root')
+    document.getElementById("modal-root")
   );
 };
 

@@ -1,23 +1,11 @@
-import React, { useState } from "react";
+import React from "react";
 import "./Meals.css";
 import Button from "./Button";
-import Modal from "../Modal/Modal";
 
-const Meals = (props) => {
-  const [showModal, setShowModal] = useState(false);
-  const [orderDetails, setOrderDetails] = useState([]);
-  const [totalAmount, setTotalAmount] = useState(0);
-
-  const handleAddClick = (meal) => {
-    setOrderDetails([...orderDetails, meal]);
-    setTotalAmount(totalAmount + parseFloat(meal.price.replace('$', '')));
-    setShowModal(true);
-  };
-
-
+const Meals = ({ data, onAddMeal }) => {
   return (
     <div className="main-container">
-      {props.data.map((meal, index) => (
+      {data.map((meal, index) => (
         <div className="main-div" key={index}>
           <div className="items">
             <div className="item">
@@ -28,13 +16,12 @@ const Meals = (props) => {
             <div className="amount">
               <label htmlFor="amount">Amount</label>
               <input type="number" placeholder="1" />
-              <Button onClick={() => handleAddClick(meal)}>+ Add</Button>
+              <Button onClick={() => onAddMeal(meal)}>+ Add</Button>
             </div>
           </div>
           <hr />
         </div>
       ))}
-      <Modal show={showModal}  orderDetails={orderDetails} totalAmount={`$${totalAmount.toFixed(2)}`} />
     </div>
   );
 };
