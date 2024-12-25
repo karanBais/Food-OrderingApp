@@ -1,49 +1,30 @@
-import React, { useState } from "react";
-import Header from "./Components/Layout/Header";
-import Meals from "./Components/Meals/Meals";
-import Modal from "./Components/Modal/Modal";
-import Content from "./Components/Layout/Content";
-import "./App.css";
+import { useState } from 'react';
 
-const App = () => {
-  const [showModal, setShowModal] = useState(false);
-  const [orderDetails, setOrderDetails] = useState([]);
-  const [totalAmount, setTotalAmount] = useState(0);
+import Header from './Components/Layout/Header';
+import Meals from './Components/Meals/Meals';
+import Cart from './Components/Cart/Cart';
+import CartProvider from './store/CartProvider';
 
-  const mealsData = [
-    { dish: "Sushi", info: "Finest fish and veggies", price: "$22.99" },
-    { dish: "Schnitzel", info: "A German specialty!", price: "$16.50" },
-    { dish: "Barbecue Burger", info: "American, raw, meaty", price: "$12.99" },
-    { dish: "Green Bowl", info: "Healthy...and green...", price: "$18.99" },
-  ];
+function App() {
+  const [cartIsShown, setCartIsShown] = useState(false);
 
-  const handleAddMeal = (meal) => {
-    setOrderDetails([...orderDetails, meal]);
-    setTotalAmount(totalAmount + parseFloat(meal.price.replace("$", "")));
-    setShowModal(true);
+  const showCartHandler = () => {
+    setCartIsShown(true);
   };
 
-  const handleCartClick = () => {
-    setShowModal(true);
-  };
-
-  const handleCloseModal = () => {
-    setShowModal(false);
+  const hideCartHandler = () => {
+    setCartIsShown(false);
   };
 
   return (
-    <div>
-      <Header onCartClick={handleCartClick} />
-      <Content />
-      <Meals data={mealsData} onAddMeal={handleAddMeal} />
-      <Modal
-        show={showModal}
-        onClose={handleCloseModal}
-        orderDetails={orderDetails}
-        totalAmount={`$${totalAmount.toFixed(2)}`}
-      />
-    </div>
+    <CartProvider>
+      {cartIsShown && <Cart onClose={hideCartHandler} />}
+      <Header onShowCart={showCartHandler} />
+      <main>
+        <Meals />
+      </main>
+    </CartProvider>
   );
-};
+}
 
 export default App;

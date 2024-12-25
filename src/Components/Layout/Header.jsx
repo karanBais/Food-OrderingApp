@@ -1,18 +1,20 @@
-import React from "react";
-import "./Header.css";
-import { FaCartShopping } from "react-icons/fa6";
-import Button from "../Meals/Button";
+import { Fragment } from 'react';
 
-const Header = ({ onCartClick }) => {
+import HeaderCartButton from './HeaderCartButton';
+import mealsImage from '../../images/background_image.jpeg';
+import classes from './Header.module.css';
+
+const Header = (props) => {
   return (
-    <div className="main-header">
-      <h1>React Meals</h1>
-      <Button onClick={onCartClick} className="cart">
-        <FaCartShopping className="cart-icon" />
-        <p>Your Cart</p>
-        <p className="quantity">0</p>
-      </Button>
-    </div>
+    <Fragment>
+      <header className={classes.header}>
+        <h1>ReactMeals</h1>
+        <HeaderCartButton onClick={props.onShowCart} />
+      </header>
+      <div className={classes['main-image']}>
+        <img src={mealsImage} alt='A table full of delicious food!' />
+      </div>
+    </Fragment>
   );
 };
 
